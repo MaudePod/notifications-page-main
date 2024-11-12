@@ -13,9 +13,12 @@
     --border-radius:20px;
 
 }
-
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url(./fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
+}
 html {
-    font-weight: 800;
+    font-weight: 500;
 }
 
 main {
@@ -24,6 +27,7 @@ main {
     min-height: 100dvh;
     background: var(--very-light-grayish-blue);
     place-items: center;
+    font-family:  'Plus Jakarta Sans';
 }
 
 section[class="card"] {
@@ -44,10 +48,10 @@ section[class="card-header"] {
     margin-bottom: 5%;
 }
 
-span [class="notifications"] {
+span[class="notifications"] {
     grid-area: notifications;
     color: var(--very-dark-blue);
-    gap: 5%;
+    margin-right:10px;
 }
 
 span[class="notification-count"] {
@@ -119,14 +123,17 @@ section[class="headline"] {
 
 span[class="poster-name"] {
     color: var(--very-dark-blue);
+    font-weight: 800;
 }
 
 span[class="referenced-post"] {
     color: var(--dark-grayish-blue);
+    font-weight: 800;
 }
 
 span[class="group-name"] {
     color: var(--blue);
+    font-weight: 800;
 }
 
 span[class="date-created"] {
