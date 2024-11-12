@@ -10,13 +10,15 @@
     --grayish-blue: hsl(219, 14%, 63%);
     --dark-grayish-blue: hsl(219, 12%, 42%);
     --very-dark-blue: hsl(224, 21%, 14%);
-    --border-radius:20px;
+    --border-radius: 20px;
 
 }
+
 @font-face {
     font-family: 'Plus Jakarta Sans';
     src: url(./fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf);
 }
+
 html {
     font-weight: 500;
 }
@@ -27,7 +29,7 @@ main {
     min-height: 100dvh;
     background: var(--very-light-grayish-blue);
     place-items: center;
-    font-family:  'Plus Jakarta Sans';
+    font-family: 'Plus Jakarta Sans';
 }
 
 section[class="card"] {
@@ -51,7 +53,7 @@ section[class="card-header"] {
 span[class="notifications"] {
     grid-area: notifications;
     color: var(--very-dark-blue);
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 span[class="notification-count"] {
@@ -85,20 +87,23 @@ article[class^="notification"] {
 
 article[class="notification"] img,
 article[class="notification new"] img,
-    article[class="notification with-pic"] img:first-of-type {
+article[class="notification with-pic"] img:first-of-type {
     grid-area: avatar;
     width: 50px;
     height: 50px;
-    align-self:center;
+    align-self: center;
 }
-article[class="notification new"]  {
+
+article[class="notification new"] {
     background: var(--light-grayish-blue-1);
 }
-article[class="notification new"]  section[class="headline"]::after{
-content: '🔴';
-font-size: 0.5rem;
+
+article[class="notification new"] section[class="headline"]::after {
+    content: '🔴';
+    font-size: 0.5rem;
 }
-article[class="notification with-pic"]{
+
+article[class="notification with-pic"] {
     display: grid;
     grid-template-areas:
         "... avatar headline headline pic "
@@ -108,17 +113,19 @@ article[class="notification with-pic"]{
     padding: 1%;
     border-radius: 5px;
 }
-article[class="notification with-pic"] img:nth-of-type(2){
+
+article[class="notification with-pic"] img:nth-of-type(2) {
     grid-area: pic;
     width: 50px;
     height: 50px;
-    align-self:center;
+    align-self: center;
     justify-self: end;
 }
+
 section[class="headline"] {
     grid-area: headline;
     color: var(--grayish-blue);
-    align-self:center;
+    align-self: center;
 }
 
 span[class="poster-name"] {
@@ -140,7 +147,8 @@ span[class="date-created"] {
     color: var(--grayish-blue);
     grid-area: date-created;
 }
-article[class="message"]{
+
+article[class="message"] {
     border: 1px solid var(--light-grayish-blue-2);
     width: 80%;
     margin-left: 15%;
@@ -148,6 +156,7 @@ article[class="message"]{
     color: var(--grayish-blue);
 
 }
+
 div[class="attribution"] {
     position: absolute;
     bottom: 5px;
@@ -155,13 +164,22 @@ div[class="attribution"] {
     right: 0;
     margin: 0 auto;
 }
+
+@media (width>=1400px) {
+
+    span[class="notification-count"] {
+        margin-left: -80px;
+    }
+}
+
 @media (width<800px) {
     section[class="card"] {
-        width:90dvw;
-        min-height:100dvh;
+        width: 90dvw;
+        min-height: 100dvh;
         margin-right: 5dvw;
     }
+
     main {
         background: var(--white);
-    }   
+    }
 }
