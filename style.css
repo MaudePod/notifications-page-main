@@ -1,0 +1,160 @@
+:root {
+    /*Primary*/
+    --red: hsl(1, 90%, 64%);
+    --blue: hsl(219, 85%, 26%);
+    /*Neutral*/
+    --white: hsl(0, 0%, 100%);
+    --very-light-grayish-blue: hsl(210, 60%, 98%);
+    --light-grayish-blue-1: hsl(211, 68%, 94%);
+    --light-grayish-blue-2: hsl(205, 33%, 90%);
+    --grayish-blue: hsl(219, 14%, 63%);
+    --dark-grayish-blue: hsl(219, 12%, 42%);
+    --very-dark-blue: hsl(224, 21%, 14%);
+    --border-radius:20px;
+
+}
+
+html {
+    font-weight: 800;
+}
+
+main {
+    display: grid;
+    width: 100dvw;
+    min-height: 100dvh;
+    background: var(--very-light-grayish-blue);
+    place-items: center;
+}
+
+section[class="card"] {
+    width: 60dvw;
+    min-height: 70dvh;
+    background: var(--white);
+    padding: 2%;
+    border-radius: var(--border-radius);
+}
+
+section[class="card-header"] {
+    display: grid;
+    grid-template-areas:
+        "notifications notification-count ... ... ... ... ... ...  mark-notifications";
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+span [class="notifications"] {
+    grid-area: notifications;
+    color: var(--very-dark-blue);
+    gap: 5%;
+}
+
+span[class="notification-count"] {
+    grid-area: notification-count;
+    height: max-content;
+    width: 20px;
+    background: var(--blue);
+    display: grid;
+    place-items: center;
+    margin-left: -20px;
+    color: var(--white);
+}
+
+span[class="mark-notifications"] {
+    grid-area: mark-notifications;
+    color: var(--grayish-blue);
+    font-weight: 800;
+}
+
+article[class^="notification"] {
+    display: grid;
+    grid-template-areas:
+        "... avatar headline headline headline"
+        "... avatar date-created ... ...";
+    grid-template-columns: 1% 15% 1fr 1fr 1fr;
+    margin-bottom: 1%;
+    padding: 1%;
+    border-radius: 5px;
+
+}
+
+article[class="notification"] img,
+article[class="notification new"] img,
+    article[class="notification with-pic"] img:first-of-type {
+    grid-area: avatar;
+    width: 50px;
+    height: 50px;
+    align-self:center;
+}
+article[class="notification new"]  {
+    background: var(--light-grayish-blue-1);
+}
+article[class="notification new"]  section[class="headline"]::after{
+content: '🔴';
+font-size: 0.5rem;
+}
+article[class="notification with-pic"]{
+    display: grid;
+    grid-template-areas:
+        "... avatar headline headline pic "
+        "... avatar date-created ... pic";
+    grid-template-columns: 1% 15% 1fr 1fr 1fr;
+    margin-bottom: 1%;
+    padding: 1%;
+    border-radius: 5px;
+}
+article[class="notification with-pic"] img:nth-of-type(2){
+    grid-area: pic;
+    width: 50px;
+    height: 50px;
+    align-self:center;
+    justify-self: end;
+}
+section[class="headline"] {
+    grid-area: headline;
+    color: var(--grayish-blue);
+    align-self:center;
+}
+
+span[class="poster-name"] {
+    color: var(--very-dark-blue);
+}
+
+span[class="referenced-post"] {
+    color: var(--dark-grayish-blue);
+}
+
+span[class="group-name"] {
+    color: var(--blue);
+}
+
+span[class="date-created"] {
+    color: var(--grayish-blue);
+    grid-area: date-created;
+}
+article[class="message"]{
+    border: 1px solid var(--light-grayish-blue-2);
+    width: 80%;
+    margin-left: 15%;
+    padding: 1%;
+    color: var(--grayish-blue);
+
+}
+div[class="attribution"] {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+@media (width<800px) {
+    section[class="card"] {
+        width:90dvw;
+        min-height:100dvh;
+        margin-right: 5dvw;
+    }
+    main {
+        background: var(--white);
+    }   
+}
